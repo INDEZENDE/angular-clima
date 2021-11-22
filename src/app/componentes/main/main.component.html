@@ -1,0 +1,22 @@
+<br>
+<div *ngIf="showCiudad" class='container'>
+  <p>Ciudades</p>
+  <ul *ngFor="let ciudad of ciudades">
+    <li>{{ciudad}}</li>
+  </ul>
+</div>
+<div class="container">
+  <button class="btn btn-primary" (click)="mostrar()" *ngIf="!showCiudad">Esconde ciudad</button>
+  <button class="btn btn-primary" (click)="mostrar()" *ngIf="showCiudad">Mostrar ciudad</button>
+</div>
+<br>
+<div class="container">
+  <h4>NgClass</h4>
+  <br>
+  <div [ngClass]="{'alert-primary': changeCss, 'alert-warning': !changeCss}" class="alert" role="alert">
+    Simple alerta primaria
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="cambioCss()">Cambio estilo css</button>
+  </div>
+</div>

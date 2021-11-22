@@ -1,0 +1,31 @@
+<div class="container">
+  <br>
+  <h1>Consulta del tiempo por ciudad</h1>
+  <h5>{{fecha | date : 'dd/MM/yyyy'}}</h5>
+  <div class="col-lg-6 alineacion card">
+    <form [formGroup]="formulario!" (submit)="consultar()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Ciudad</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="ciudad">
+        <p class="text-danger" *ngIf="formulario!.get('ciudad')!.invalid && formulario.get('ciudad')!.touched ">Por favor escriba sólo letras</p>
+      </div>
+      <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+    <p class="text-danger" *ngIf="showError">{{mensajeError}}</p>
+  </div>
+
+  <div class="col-lg-6 alineacion" >
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Descripción: {{ descripcion }}</li>
+          <li>Temperatura: {{ temperatura }}</li>
+          <li>Ciudad: {{ name | uppercase }}</li>
+          <li>Latitud: {{ latitud }}</li>
+          <li>Longitud: {{longitud }}</li>
+          <li>Humedad: {{ humedad }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
